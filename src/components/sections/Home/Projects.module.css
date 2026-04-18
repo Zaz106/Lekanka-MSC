@@ -1,0 +1,246 @@
+.section {
+  width: 100%;
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+}
+
+.subtitle {
+  display: inline-block;
+  width: fit-content;
+  align-self: flex-start;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.5rem 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--accent);
+  letter-spacing: 0;
+}
+
+@media (max-width: 768px) {
+  .subtitle {
+    font-size: 0.875rem;
+    padding: 0.5rem 2.25rem;
+  }
+}
+
+.title {
+  color: var(--foreground);
+}
+
+.getInTouch {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  padding-bottom: 0.25rem;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.getInTouch:hover {
+  text-decoration: underline;
+}
+
+.linkIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 769px) {
+  .getInTouch {
+    display: inline-flex;
+  }
+}
+
+/* ── Cards base ── */
+.scroller {
+  width: 100%;
+}
+
+.cards {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 600px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 1024px) {
+  .card {
+    min-height: 620px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    min-height: 640px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 24vw, 320px);
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+}
+
+.overlay {
+  display: none;
+}
+
+.cardContent {
+  position: relative;
+  margin-top: 0;
+  padding: 1.5rem 1.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.cardTitle {
+  color: var(--foreground);
+  font-size: clamp(1.7rem, 3.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.cardDescription {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.readMore {
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  opacity: 1;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.readMore:hover {
+  text-decoration: underline;
+}
+
+/* ── Mobile carousel (≤768px) ── */
+@media (max-width: 768px) {
+  .scroller {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .scroller::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cards {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+  }
+
+  .card {
+    flex: 0 0 78vw;
+    min-width: 240px;
+    max-width: 360px;
+    min-height: 460px;
+    scroll-snap-align: center;
+  }
+
+  .imageWrapper {
+    height: clamp(180px, 48vw, 240px);
+  }
+
+  .cardContent {
+    padding: 1.2rem 1.5rem 1rem;
+  }
+
+  .cardTitle {
+    font-size: clamp(1.35rem, 5.2vw, 1.8rem);
+  }
+
+  .readMore {
+    font-size: 0.95rem;
+  }
+}
+
+/* ── Dots ── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.25s ease, width 0.25s ease;
+}
+
+.dotActive {
+  background-color: #000000;
+  width: 24px;
+}
+
+@media (min-width: 769px) {
+  .dots {
+    display: none;
+  }
+}

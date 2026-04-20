@@ -1,9 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./ContactFormSection.css";
 import Link from "next/link";
-import { CONTACT_DETAILS } from "@/constants/navigation";
+
+// ─── Config ──────────────────────────────────────────────────────────────────
+// External Resend API — hosted on Vercel, called from the static site.
+// Verify the deployment URL at: https://vercel.com/zaz106s-projects/lekanka-msc-post-api-endpoint
+const API_URL = "https://lekanka-msc-post-api-endpoint.vercel.app/api/send-email";
+
+// Minimum milliseconds between form submissions (client-side guard).
+const RATE_LIMIT_MS = 60_000;
+// Minimum time (ms) a real user takes to complete the form — bots are faster.
+const BOT_FILL_MS = 2_000;
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 type PopupState = "success" | "error" | "rate-limited" | null;
@@ -88,8 +97,12 @@ const ContactFormSection = () => {
     email: "",
     enquiryType: "",
     message: "",
-    hp_field: "", // Honeypot field
   });
+
+  // Uncontrolled ref for honeypot — bots set DOM values directly without
+  // triggering React's synthetic onChange, so a controlled input would always
+  // read "" even when a bot has filled it. Using a ref we read the real DOM value.
+  const honeypotRef = useRef<HTMLInputElement>(null);
 
   const [loadTimestamp, setLoadTimestamp] = useState<number>(0);
 
@@ -131,17 +144,61 @@ const ContactFormSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
     setPopup(null);
 
+    // ── Honeypot check ─────────────────────────────────────────────────────
+    // Bots fill every visible field. Real users never touch this hidden input.
+    if (honeypotRef.current?.value) {
+      // Silently "succeed" — don't tell bots they were caught.
+      setPopup("success");
+      return;
+    }
+
+    // ── Bot-speed check ────────────────────────────────────────────────────
+    // A real person can't read and fill the form in under 2 seconds.
+    if (loadTimestamp > 0 && Date.now() - loadTimestamp < BOT_FILL_MS) {
+      setPopup("success");
+      return;
+    }
+
+    // ── Client-side rate limit ─────────────────────────────────────────────
+    const lastSent = Number(localStorage.getItem("lmsc_last_sent") ?? 0);
+    if (Date.now() - lastSent < RATE_LIMIT_MS) {
+      setPopup("rate-limited");
+      return;
+    }
+
+    // ── Client-side email validation ───────────────────────────────────────
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(formData.email)) {
+      setPopup("error");
+      return;
+    }
+
+    setIsLoading(true);
+
     try {
-      const res = await fetch("/api/send-enquiry", {
+      const res = await fetch(API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, loadTimestamp }),
+        headers: {
+          "Content-Type": "application/json",
+          // Lightweight CSRF signal — non-browser tools don't send this automatically.
+          "X-Requested-With": "XMLHttpRequest",
+        },
+        body: JSON.stringify({
+          firstName:    formData.firstName,
+          lastName:     formData.lastName,
+          email:        formData.email,
+          phone:        formData.phone,
+          province:     formData.province,
+          enquiryType:  formData.enquiryType || "General Enquiry",
+          message:      formData.message,
+          _honeypot:    "", // always blank from the legitimate form
+        }),
       });
 
       if (res.ok) {
+        localStorage.setItem("lmsc_last_sent", String(Date.now()));
         setPopup("success");
         setFormData({
           firstName: "",
@@ -151,7 +208,6 @@ const ContactFormSection = () => {
           email: "",
           enquiryType: "",
           message: "",
-          hp_field: "",
         });
       } else if (res.status === 429) {
         setPopup("rate-limited");
@@ -159,6 +215,7 @@ const ContactFormSection = () => {
         setPopup("error");
       }
     } catch {
+      // Never expose raw error details to the user.
       setPopup("error");
     } finally {
       setIsLoading(false);
@@ -190,20 +247,20 @@ const ContactFormSection = () => {
                 <h3>Get in Touch</h3>
                 <a
                   className="location"
-                  href={CONTACT_DETAILS.mapsUrl}
+                  href="https://www.google.com/maps/search/?api=1&query=Johannesburg%2C+South+Africa"
                   target="_blank"
                   rel="noreferrer"
                 >
                   Johannesburg, South Africa
                 </a>
-                <a className="phone" href={`tel:${CONTACT_DETAILS.phoneTel}`}>
-                  {CONTACT_DETAILS.phoneDisplay}
+                <a className="phone" href="tel:+27110000000">
+                  +27 11 000 0000
                 </a>
                 <a
                   className="email"
-                  href={`mailto:${CONTACT_DETAILS.email}`}
+                  href="mailto:hello@lmsc.co.za"
                 >
-                  {CONTACT_DETAILS.email}
+                  hello@lmsc.co.za
                 </a>
 
                 <div className="contact-social-links">
@@ -342,13 +399,17 @@ const ContactFormSection = () => {
                 <p className="char-counter">{formData.message.length} / 2000</p>
               </div>
 
-              {/* Honeypot field - hidden from users */}
-              <div style={{ display: "none" }} aria-hidden="true">
+              {/* Honeypot — positioned off-screen so it's invisible to humans but
+                  reachable by bots. Uncontrolled so bots that set DOM values
+                  directly (without firing React events) are still detected. */}
+              <div
+                style={{ position: "absolute", left: "-9999px", top: "-9999px" }}
+                aria-hidden="true"
+              >
                 <input
+                  ref={honeypotRef}
                   type="text"
-                  name="hp_field"
-                  value={formData.hp_field}
-                  onChange={handleChange}
+                  name="_honeypot"
                   tabIndex={-1}
                   autoComplete="off"
                 />

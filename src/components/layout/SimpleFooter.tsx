@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NAV } from "@/constants/navigation";
-import { NavHomeTopLink, NavSectionLink } from "@/components/layout/NavSectionLink";
 import styles from "./SimpleFooter.module.css";
 
 const SimpleFooter = () => {
@@ -31,66 +29,60 @@ const SimpleFooter = () => {
             <div className={styles.columns}>
               <div>
                 <h4>Explore</h4>
-                <NavHomeTopLink className={styles.columnLink}>Home</NavHomeTopLink>
-                <NavSectionLink
-                  href={NAV.about}
-                  sectionId="about"
+                <Link href="/" className={styles.columnLink}>Home</Link>
+                <Link
+                  href="/#about"
                   className={styles.columnLink}
                 >
                   About Us
-                </NavSectionLink>
-                <NavSectionLink
-                  href={NAV.services}
-                  sectionId="services"
+                </Link>
+                <Link
+                  href="/#services"
                   className={styles.columnLink}
                 >
                   Services
-                </NavSectionLink>
-                <NavSectionLink
-                  href={NAV.projects}
-                  sectionId="projects"
+                </Link>
+                <Link
+                  href="/#projects"
                   className={styles.columnLink}
                 >
                   Projects
-                </NavSectionLink>
+                </Link>
               </div>
               <div>
                 <h4>About</h4>
-                <NavSectionLink
-                  href={NAV.about}
-                  sectionId="about"
+                <Link
+                  href="/#about"
                   className={styles.columnLink}
                 >
                   Our Story
-                </NavSectionLink>
-                <NavSectionLink
-                  href={NAV.services}
-                  sectionId="services"
+                </Link>
+                <Link
+                  href="/#services"
                   className={styles.columnLink}
                 >
                   What We Do
-                </NavSectionLink>
-                <NavSectionLink
-                  href={NAV.projects}
-                  sectionId="projects"
+                </Link>
+                <Link
+                  href="/#projects"
                   className={styles.columnLink}
                 >
                   Our Work
-                </NavSectionLink>
-                <Link href={NAV.contact} className={styles.columnLink} scroll>
+                </Link>
+                <Link href="/Contact-Us" className={styles.columnLink}>
                   Contact Us
                 </Link>
               </div>
               <div>
                 <h4>Support</h4>
                 <div className={styles.linkGroup}>
-                  <Link href={NAV.contactFaq} className={styles.columnLink} scroll={false}>
+                  <Link href="/Contact-Us#faq" className={styles.columnLink}>
                     FAQ
                   </Link>
-                  <Link href={NAV.legal} className={styles.columnLink}>
+                  <Link href="/Legal" className={styles.columnLink}>
                     Terms of Service
                   </Link>
-                  <Link href={NAV.legal} className={styles.columnLink}>
+                  <Link href="/Legal" className={styles.columnLink}>
                     Privacy Policy
                   </Link>
                 </div>
@@ -107,8 +99,8 @@ const SimpleFooter = () => {
               </a>
             </span>
             <div className={styles.bottomLinks}>
-              <Link href={NAV.legal}>Privacy Policy</Link>
-              <Link href={NAV.legal}>Terms and Conditions</Link>
+              <Link href="/Legal">Privacy Policy</Link>
+              <Link href="/Legal">Terms and Conditions</Link>
             </div>
           </div>
         </div>

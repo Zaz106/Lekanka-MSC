@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { NAV } from "@/constants/navigation";
 import styles from "./CTA.module.css";
 
 const CTA = () => {
@@ -10,7 +9,7 @@ const CTA = () => {
         <p className={styles.subtitle}>
           We are ready to start your next big project. Let's build something extraordinary together.
         </p>
-        <Link href={NAV.contact} className={styles.ctaButton} scroll>
+        <Link href="/Contact-Us" className={styles.ctaButton}>
           Contact Us
         </Link>
       </div>

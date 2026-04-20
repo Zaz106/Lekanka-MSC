@@ -1,7 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./Hero.module.css";
-import { NAV } from "@/constants/navigation";
-import { NavSectionLink } from "@/components/layout/NavSectionLink";
 
 const Hero = () => {
   return (
@@ -27,13 +26,12 @@ const Hero = () => {
           <p className={styles.subtitle}>
             We provide comprehensive construction solutions designed to meet the highest standards of quality, safety, and durability.
           </p>
-          <NavSectionLink
-            href={NAV.projects}
-            sectionId="projects"
+          <Link
+            href="/#projects"
             className={styles.ctaButton}
           >
             Explore Projects
-          </NavSectionLink>
+          </Link>
         </div>
       </div>
     </section>

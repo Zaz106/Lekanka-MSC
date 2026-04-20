@@ -42,8 +42,20 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "LMSC Construction",
-  description: "Turning Dreams Into Construction",
+  metadataBase: new URL("https://www.lmsc.co.za"),
+  title: {
+    template: "%s | LMSC Construction",
+    default: "LMSC Construction",
+  },
+  description: "Turning Dreams Into Construction - End-to-end building and civil solutions.",
+  openGraph: {
+    title: "LMSC Construction",
+    description: "Turning Dreams Into Construction - End-to-end building and civil solutions.",
+    url: "https://www.lmsc.co.za",
+    siteName: "LMSC Construction",
+    locale: "en_ZA",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

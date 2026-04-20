@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { NAV } from "@/constants/navigation";
 import styles from "./Projects.module.css";
 
 const offerings = [
@@ -107,7 +106,7 @@ const Offerings = () => {
               Take a Look at Our Latest Projects
             </h2>
           </div>
-          <Link href={NAV.contact} className={styles.getInTouch} scroll>
+          <Link href="/Contact-Us" className={styles.getInTouch}>
             Get In Touch <ArrowIcon />
           </Link>
         </div>
@@ -129,7 +128,7 @@ const Offerings = () => {
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{offering.title}</h3>
                   <p className={styles.cardDescription}>{offering.description}</p>
-                  <Link href={NAV.contact} className={styles.readMore} scroll>
+                  <Link href="/Contact-Us" className={styles.readMore}>
                     Explore More <ArrowIcon />
                   </Link>
                 </div>

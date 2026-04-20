@@ -1,5 +1,4 @@
 import styles from "./LegalContent.module.css";
-import { CONTACT_DETAILS } from "@/constants/navigation";
 
 const LegalContent = () => {
   return (
@@ -119,20 +118,20 @@ const LegalContent = () => {
             <ul className={styles.contactList}>
               <li>
                 <strong>Email:</strong>{" "}
-                <a href={`mailto:${CONTACT_DETAILS.email}`}>
-                  {CONTACT_DETAILS.email}
+                <a href="mailto:hello@lmsc.co.za">
+                  hello@lmsc.co.za
                 </a>
               </li>
               <li>
                 <strong>Phone:</strong>{" "}
-                <a href={`tel:${CONTACT_DETAILS.phoneTel}`}>
-                  {CONTACT_DETAILS.phoneDisplay}
+                <a href="tel:+27110000000">
+                  +27 11 000 0000
                 </a>
               </li>
               <li>
                 <strong>Address:</strong>{" "}
                 <a
-                  href={CONTACT_DETAILS.mapsUrl}
+                  href="https://www.google.com/maps/search/?api=1&query=Johannesburg%2C+South+Africa"
                   target="_blank"
                   rel="noreferrer"
                 >

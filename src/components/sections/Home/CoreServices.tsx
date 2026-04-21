@@ -21,16 +21,19 @@ const CoreServices = () => {
 
       <div className={styles.textContent}>
         <p>
-          We pride ourselves on offering comprehensive construction solutions. From the initial 
-          planning stages to the final handover, our team ensures every project meets the 
-          highest standards of excellence. Our experienced professionals bring decades of 
-          collective knowledge to every site, ensuring safety, efficiency, and reliability.
+          We pride ourselves on offering integrated mining, supply, and
+          construction solutions. From the initial planning stages to the final
+          handover, our team ensures every project meets the highest standards
+          of excellence. Our experienced professionals bring decades of
+          collective knowledge to every site, ensuring safety, efficiency, and
+          reliability.
         </p>
         <p>
-          Whether it is commercial infrastructure, industrial development, or large-scale 
-          civil engineering, our specialisations allow us to tackle complex challenges 
-          head-on. We utilize modern methodologies and state-of-the-art equipment to deliver 
-          unparalleled results that stand the test of time.
+          Whether it is commercial construction, industrial development,
+          resource extraction, or large-scale civil engineering, our
+          specialisations allow us to tackle complex challenges head-on. We
+          utilise modern methodologies and state-of-the-art equipment to
+          deliver results that stand the test of time.
         </p>
       </div>
     </section>

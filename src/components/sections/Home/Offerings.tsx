@@ -97,7 +97,7 @@ const Offerings = () => {
           <div className={styles.headerLeft}>
             <span className={styles.subtitle}>What We Do</span>
             <h2 className={styles.title}>
-              What Our Industrial Company Offers
+              What Lekanka MSC Offers
             </h2>
           </div>
           <Link href="/Contact-Us" className={styles.getInTouch}>

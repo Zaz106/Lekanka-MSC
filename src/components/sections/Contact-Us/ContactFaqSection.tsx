@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "What types of projects does LMSC take on?",
     answer:
-      "We specialise in commercial construction, industrial development, civil engineering, renovations, and ongoing site maintenance. If you're unsure whether your project fits, get in touch and we'll guide you through the options.",
+      "We specialise in commercial construction, industrial development, civil engineering, mining and resource extraction operations, supply chain and procurement support, renovations, and ongoing site maintenance. If you're unsure whether your project fits, get in touch and we'll guide you through the options.",
   },
   {
     question: "Are you licensed and insured?",

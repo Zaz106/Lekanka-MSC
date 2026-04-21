@@ -7,21 +7,21 @@ import styles from "./Projects.module.css";
 
 const offerings = [
   {
-    title: "Project 1",
+    title: "Commercial Construction",
     description:
-      "This is a description of Project 1. It is a project that we did for a client. It is a project that we are proud of. It is a project that we are happy to show to the world.",
+      "A full-scope commercial build delivered from groundworks through to final handover, meeting all safety, compliance, and quality benchmarks on time and on budget.",
     image: "/images/Home-Project-Card1.webp",
   },
   {
-    title: "Project 2",
+    title: "Mining & Extraction Operations",
     description:
-      "This is a description of Project 2. It is a project that we did for a client. It is a project that we are proud of. It is a project that we are happy to show to the world.",
+      "End-to-end resource extraction support, covering site preparation, operational logistics, environmental compliance, and ongoing site management.",
     image: "/images/Home-Project-Card2.webp",
   },
   {
-    title: "Project 3",
+    title: "Civil & Infrastructure Development",
     description:
-      "This is a description of Project 3. It is a project that we did for a client. It is a project that we are proud of. It is a project that we are happy to show to the world.",
+      "Large-scale civil infrastructure delivered with rigorous project controls, specialist subcontractor coordination, and a safety-first approach throughout.",
     image: "/images/Home-Project-Card3.webp",
   },
 ];

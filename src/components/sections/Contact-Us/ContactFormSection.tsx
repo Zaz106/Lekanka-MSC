@@ -49,10 +49,10 @@ const SubmitPopup = ({
       : "Something Went Wrong";
 
   const message = isSuccess
-    ? "Thank you for contacting LMSC Construction. Our team will respond as soon as possible."
+    ? "Thank you for contacting Lekanka MSC. Our team will respond as soon as possible."
     : isRateLimited
       ? "You've submitted several enquiries in a short time. Please wait a few minutes and try again."
-      : "We couldn't send your message. Please try again or email us at hello@lmsc.co.za";
+      : "We couldn't send your message. Please try again or email us at info@lekankamsc.co.za";
 
   const btnLabel = isSuccess ? "Great, thanks!" : "Close";
 
@@ -231,9 +231,9 @@ const ContactFormSection = () => {
             </h2>
             <p className="contact-info-text">
               Whether you found us through our projects, services, or about
-              pages, this is the best place to reach LMSC Construction. Tell us
-              about your build, timeline, and location—we will point you to the
-              right team.
+              pages, this is the best place to reach Lekanka MSC. Tell us
+              about your project, timeline, and location—we will point you to
+              the right team.
             </p>
 
             <div className="contact-details">
@@ -247,14 +247,11 @@ const ContactFormSection = () => {
                 >
                   Johannesburg, South Africa
                 </a>
-                <a className="phone" href="tel:+27110000000">
-                  +27 11 000 0000
-                </a>
                 <a
                   className="email"
-                  href="mailto:hello@lmsc.co.za"
+                  href="mailto:info@lekankamsc.co.za"
                 >
-                  hello@lmsc.co.za
+                  info@lekankamsc.co.za
                 </a>
 
                 <div className="contact-social-links">

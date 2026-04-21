@@ -24,7 +24,9 @@ const Hero = () => {
             Turning Dreams Into Construction
           </h1>
           <p className={styles.subtitle}>
-            We provide comprehensive construction solutions designed to meet the highest standards of quality, safety, and durability.
+            We provide integrated mining, supply, and construction solutions
+            designed to meet the highest standards of quality, safety, and
+            durability.
           </p>
           <Link
             href="/#projects"

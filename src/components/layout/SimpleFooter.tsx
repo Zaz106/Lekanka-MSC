@@ -21,9 +21,9 @@ const SimpleFooter = () => {
                 />
               </div>
               <p>
-                LMSC Construction delivers end-to-end building and civil solutions
-                with the same commitment to quality, safety, and durability you see
-                across our projects and services.
+                Lekanka Mining, Supply and Construction delivers end-to-end mining,
+                supply, and construction solutions with an unwavering commitment to
+                quality, safety, and reliability across every project we undertake.
               </p>
             </div>
             <div className={styles.columns}>

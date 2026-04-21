@@ -55,7 +55,7 @@ const Header = () => {
           <Link href="/" className={styles.logo}>
             <Image
               src="/images/LMSC - Logo.png"
-              alt="LMSC Construction"
+              alt="Lekanka MSC"
               width={150}
               height={50}
               priority

@@ -17,12 +17,13 @@ const LegalContent = () => {
           <div className={styles.sectionBlock}>
             <h3 className={styles.sectionHeading}>1. Introduction</h3>
             <p>
-              LMSC Construction (“we”, “us”, or “our”) operates this website to
-              share information about our construction, civil, and related
-              services. This page explains how we collect, use, and protect
-              personal information when you use our site or contact us. By
-              using the website, you agree to this policy and to our terms as
-              described below.
+              Lekanka Mining, Supply and Construction (LMSC) (“we”, “us”, or
+              “our”) operates this website to share information about our
+              mining, supply, construction, civil, and related services. This
+              page explains how we collect, use, and protect personal
+              information when you use our site or contact us. By using the
+              website, you agree to this policy and to our terms as described
+              below.
             </p>
           </div>
 
@@ -118,14 +119,8 @@ const LegalContent = () => {
             <ul className={styles.contactList}>
               <li>
                 <strong>Email:</strong>{" "}
-                <a href="mailto:hello@lmsc.co.za">
-                  hello@lmsc.co.za
-                </a>
-              </li>
-              <li>
-                <strong>Phone:</strong>{" "}
-                <a href="tel:+27110000000">
-                  +27 11 000 0000
+                <a href="mailto:info@lekankamsc.co.za">
+                  info@lekankamsc.co.za
                 </a>
               </li>
               <li>

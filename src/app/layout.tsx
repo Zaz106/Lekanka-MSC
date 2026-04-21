@@ -44,15 +44,15 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.lmsc.co.za"),
   title: {
-    template: "%s | LMSC Construction",
-    default: "LMSC Construction",
+    template: "%s | Lekanka MSC",
+    default: "Lekanka MSC",
   },
-  description: "Turning Dreams Into Construction - End-to-end building and civil solutions.",
+  description: "Lekanka Mining, Supply and Construction — end-to-end mining, supply, and construction solutions built on quality, safety, and reliability.",
   openGraph: {
-    title: "LMSC Construction",
-    description: "Turning Dreams Into Construction - End-to-end building and civil solutions.",
+    title: "Lekanka MSC",
+    description: "Lekanka Mining, Supply and Construction — end-to-end mining, supply, and construction solutions built on quality, safety, and reliability.",
     url: "https://www.lmsc.co.za",
-    siteName: "LMSC Construction",
+    siteName: "Lekanka MSC",
     locale: "en_ZA",
     type: "website",
   },

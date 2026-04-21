@@ -180,11 +180,7 @@ const ContactFormSection = () => {
     try {
       const res = await fetch(API_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Lightweight CSRF signal — non-browser tools don't send this automatically.
-          "X-Requested-With": "XMLHttpRequest",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           firstName:    formData.firstName,
           lastName:     formData.lastName,
@@ -193,7 +189,7 @@ const ContactFormSection = () => {
           province:     formData.province,
           enquiryType:  formData.enquiryType || "General Enquiry",
           message:      formData.message,
-          _honeypot:    "", // always blank from the legitimate form
+          _honeypot:    "",
         }),
       });
 
@@ -209,8 +205,6 @@ const ContactFormSection = () => {
           enquiryType: "",
           message: "",
         });
-      } else if (res.status === 429) {
-        setPopup("rate-limited");
       } else {
         setPopup("error");
       }

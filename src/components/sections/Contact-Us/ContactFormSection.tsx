@@ -6,8 +6,8 @@ import Link from "next/link";
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 // External Resend API — hosted on Vercel, called from the static site.
-// Verify the deployment URL at: https://vercel.com/zaz106s-projects/lekanka-msc-post-api-endpoint
-const API_URL = "https://lekanka-msc-post-api-endpoint.vercel.app/api/send-email";
+// Verify the deployment URL at: https://vercel.com/zaz106s-projects/lmsc-api-endpoint
+const API_URL = "https://lmsc-api-endpoint.vercel.app/api/send-email";
 
 // Minimum milliseconds between form submissions (client-side guard).
 const RATE_LIMIT_MS = 60_000;

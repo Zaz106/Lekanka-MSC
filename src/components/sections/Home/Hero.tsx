@@ -8,7 +8,7 @@ const Hero = () => {
       <div className={styles.background}>
           <Image
             src="/images/Home-Hero-Image.webp"
-            alt="Construction site"
+            alt="Lekanka MSC active construction and mining site in South Africa"
             fill
             sizes="100vw"
             priority

@@ -51,7 +51,7 @@ const ContactFaqSection = () => {
     <section id="faq" className={`container ${styles.section}`}>
     <div className={styles.header}>
       <span className={styles.subtitle}>FAQ</span>
-      <h2 className={styles.title}>You Have Questions, We Have Answers</h2>
+      <h2 className={styles.title}>Frequently Asked Questions</h2>
     </div>
 
         <div className={styles.faqList}>

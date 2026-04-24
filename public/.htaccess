@@ -10,7 +10,11 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Remove www (or add www — pick one and remove the other block)
+# Force www — redirect lmsc.co.za → www.lmsc.co.za (matches canonical URLs)
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# (To remove www instead, uncomment below and delete the two lines above)
 # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 # RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
@@ -36,7 +40,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Content Security Policy
     # connect-src must include the Vercel API so the contact form fetch works.
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self' https://lekanka-msc-post-api-endpoint.vercel.app; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self' https://lmsc-api-endpoint.vercel.app; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
 </IfModule>
 
 # ── MIME Types ────────────────────────────────────────────────────────────────

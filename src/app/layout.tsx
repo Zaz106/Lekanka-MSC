@@ -45,16 +45,36 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.lmsc.co.za"),
   title: {
     template: "%s | Lekanka MSC",
-    default: "Lekanka MSC",
+    default: "Lekanka MSC | Mining, Supply & Construction",
   },
   description: "Lekanka Mining, Supply and Construction — end-to-end mining, supply, and construction solutions built on quality, safety, and reliability.",
   openGraph: {
-    title: "Lekanka MSC",
+    title: "Lekanka MSC | Mining, Supply & Construction",
     description: "Lekanka Mining, Supply and Construction — end-to-end mining, supply, and construction solutions built on quality, safety, and reliability.",
     url: "https://www.lmsc.co.za",
     siteName: "Lekanka MSC",
     locale: "en_ZA",
     type: "website",
+    images: [
+      {
+        url: "/images/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Lekanka MSC — Mining, Supply & Construction",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lekanka MSC | Mining, Supply & Construction",
+    description: "End-to-end mining, supply, and construction solutions built on quality, safety, and reliability across South Africa.",
+    images: ["/images/og-home.jpg"],
+  },
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
+  other: {
+    "theme-color": "#861414",
   },
 };
 
@@ -65,7 +85,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-ZA"
       data-scroll-behavior="smooth"
       className={`${satoshi.variable} ${instrumentSans.variable}`}
     >

@@ -128,7 +128,7 @@
   height: 100%;
 }
 
-.contact-info h2 {
+.contact-info h1 {
   font-size: var(--text-h2);
   color: #ffffff;
   margin-bottom: 1rem;
@@ -137,7 +137,7 @@
 }
 
 @media (max-width: 768px) {
-  .contact-info h2 {
+  .contact-info h1 {
     font-size: var(--text-h2);
     margin-bottom: 0.5rem;
     line-height: 1.1;

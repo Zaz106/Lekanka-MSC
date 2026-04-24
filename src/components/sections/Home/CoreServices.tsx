@@ -12,7 +12,7 @@ const CoreServices = () => {
       <div className={styles.imageWrapper}>
         <Image
           src="/images/Home-AboutUs-Image.webp"
-          alt="Core Services"
+          alt="Lekanka MSC team delivering integrated mining, supply, and construction project solutions in South Africa"
           fill
           sizes="(max-width: 1024px) 100vw, 80vw"
           style={{ objectFit: "cover" }}

@@ -142,6 +142,7 @@ const Offerings = () => {
             {offerings.map((_, i) => (
               <button
                 key={i}
+                role="tab"
                 type="button"
                 className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ""}`}
                 onClick={() => goToCard(i)}

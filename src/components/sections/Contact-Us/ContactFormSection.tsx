@@ -224,11 +224,9 @@ const ContactFormSection = () => {
       <section className="contact-form-section">
         <div className="contact-form-container">
           <div className="contact-info">
-            <h2>
-              You Have Questions,
-              <br />
-              We Have Answers
-            </h2>
+            <h1>
+              Get In Touch With<br />Lekanka MSC
+            </h1>
             <p className="contact-info-text">
               Whether you found us through our projects, services, or about
               pages, this is the best place to reach Lekanka MSC. Tell us

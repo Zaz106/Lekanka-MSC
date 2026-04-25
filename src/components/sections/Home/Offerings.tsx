@@ -100,7 +100,7 @@ const Offerings = () => {
               What Lekanka MSC Offers
             </h2>
           </div>
-          <Link href="/Contact-Us" className={styles.getInTouch}>
+          <Link href="/Contact-Us" className={styles.getInTouch} aria-label="Get in touch about our services">
             Get In Touch <ArrowIcon />
           </Link>
         </div>
@@ -121,7 +121,7 @@ const Offerings = () => {
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{offering.title}</h3>
-                  <Link href="/Contact-Us" className={styles.readMore}>
+                  <Link href="/Contact-Us" className={styles.readMore} aria-label={`Learn more about ${offering.title}`}>
                     Explore More <ArrowIcon />
                   </Link>
                 </div>

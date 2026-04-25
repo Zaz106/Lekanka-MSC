@@ -106,7 +106,7 @@ const Offerings = () => {
               Take a Look at Our Latest Projects
             </h2>
           </div>
-          <Link href="/Contact-Us" className={styles.getInTouch}>
+          <Link href="/Contact-Us" className={styles.getInTouch} aria-label="Get in touch about our projects">
             Get In Touch <ArrowIcon />
           </Link>
         </div>
@@ -128,7 +128,7 @@ const Offerings = () => {
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{offering.title}</h3>
                   <p className={styles.cardDescription}>{offering.description}</p>
-                  <Link href="/Contact-Us" className={styles.readMore}>
+                  <Link href="/Contact-Us" className={styles.readMore} aria-label={`Enquire about ${offering.title}`}>
                     Explore More <ArrowIcon />
                   </Link>
                 </div>

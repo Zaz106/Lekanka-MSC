@@ -58,7 +58,7 @@ const Testimonials = () => {
         <div className={styles.row}>
           <div className={styles.track}>
             {[...topRow, ...topRow].map((testimonial, i) => (
-              <article key={`top-${i}`} className={styles.card}>
+              <article key={`top-${i}`} className={styles.card} aria-hidden={i >= topRow.length || undefined}>
                 <div className={styles.userInfo}>
                   <span className={styles.avatarPlaceholder}>{getInitials(testimonial.name)}</span>
                   <span className={styles.userName}>{testimonial.name}</span>
@@ -72,7 +72,7 @@ const Testimonials = () => {
         <div className={styles.row}>
           <div className={`${styles.track} ${styles.trackReverse}`}>
             {[...bottomRow, ...bottomRow].map((testimonial, i) => (
-              <article key={`bottom-${i}`} className={styles.card}>
+              <article key={`bottom-${i}`} className={styles.card} aria-hidden={i >= bottomRow.length || undefined}>
                 <div className={styles.userInfo}>
                   <span className={styles.avatarPlaceholder}>{getInitials(testimonial.name)}</span>
                   <span className={styles.userName}>{testimonial.name}</span>

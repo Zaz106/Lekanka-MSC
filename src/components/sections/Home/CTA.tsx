@@ -5,7 +5,7 @@ const CTA = () => {
   return (
     <section className={styles.section}>
       <div className={`container ${styles.container}`}>
-        <h2 className={styles.title}>Turning Dreams Into<br />Construction</h2>
+        <h2 className={styles.title}>Ready to Start Your<br />Next Project?</h2>
         <p className={styles.subtitle}>
           We are ready to support your next mining, supply, or construction
           project. Let&apos;s build something extraordinary together.

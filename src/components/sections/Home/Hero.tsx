@@ -24,7 +24,7 @@ const Hero = () => {
             Turning Dreams Into Construction
           </h1>
           <p className={styles.subtitle}>
-            We turn construction dreams into lasting reality — delivering
+            We are turning construction dreams into lasting reality — delivering
             integrated mining, supply, and construction solutions built on
             quality, safety, and durability.
           </p>

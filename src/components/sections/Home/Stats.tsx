@@ -15,10 +15,10 @@ const Stats = () => {
       <div className={styles.grid}>
         {stats.map((stat, i) => (
           <div key={i} className={styles.card}>
-            <h3 className={styles.value}>
+            <p className={styles.value} aria-label={`${stat.to}${stat.suffix} ${stat.label}`}>
               <CountUp from={0} to={stat.to} duration={2} />
-              <span>{stat.suffix}</span>
-            </h3>
+              <span aria-hidden="true">{stat.suffix}</span>
+            </p>
             <p className={styles.label}>{stat.label}</p>
           </div>
         ))}

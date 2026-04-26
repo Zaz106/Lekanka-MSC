@@ -11,18 +11,21 @@ const offerings = [
     description:
       "A full-scope commercial build delivered from groundworks through to final handover, meeting all safety, compliance, and quality benchmarks on time and on budget.",
     image: "/images/Home-Project-Card1.webp",
+    linkText: "Start a Commercial Build",
   },
   {
     title: "Mining & Extraction Operations",
     description:
       "End-to-end resource extraction support, covering site preparation, operational logistics, environmental compliance, and ongoing site management.",
     image: "/images/Home-Project-Card2.webp",
+    linkText: "Start a Mining Project",
   },
   {
     title: "Civil & Infrastructure Development",
     description:
       "Large-scale civil infrastructure delivered with rigorous project controls, specialist subcontractor coordination, and a safety-first approach throughout.",
     image: "/images/Home-Project-Card3.webp",
+    linkText: "Start a Civil Project",
   },
 ];
 
@@ -129,7 +132,7 @@ const Offerings = () => {
                   <h3 className={styles.cardTitle}>{offering.title}</h3>
                   <p className={styles.cardDescription}>{offering.description}</p>
                   <Link href="/Contact-Us" className={styles.readMore} aria-label={`Enquire about ${offering.title}`}>
-                    Explore More <ArrowIcon />
+                    {offering.linkText} <ArrowIcon />
                   </Link>
                 </div>
               </div>

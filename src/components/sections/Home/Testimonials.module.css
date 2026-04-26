@@ -81,6 +81,10 @@
   display: flex;
   gap: 1.5rem;
   width: max-content;
+}
+
+/* Applied by JS after clones are injected — keeps SSR HTML animation-free */
+.trackAnimating {
   animation: marquee 40s linear infinite;
 }
 
@@ -144,6 +148,9 @@
 
   .track {
     gap: 1rem;
+  }
+
+  .trackAnimating {
     animation-duration: 45s;
   }
 
@@ -158,13 +165,13 @@
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
-  .track {
+  .trackAnimating {
     animation-duration: 42s;
   }
 }
 
 @media (min-width: 1201px) {
-  .track {
+  .trackAnimating {
     animation-duration: 50s;
   }
 }

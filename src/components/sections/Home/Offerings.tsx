@@ -8,14 +8,17 @@ import styles from "./Offerings.module.css";
 const offerings = [
   {
     title: "Construction and Operations",
+    linkText: "Enquire About Construction",
     image: "/images/Home-WWD-Card1.webp",
   },
   {
     title: "Mining and Resource Extraction",
+    linkText: "Enquire About Mining",
     image: "/images/Home-WWD-Card2.webp",
   },
   {
     title: "Safety, Environmental, and Regulatory",
+    linkText: "Enquire About Compliance",
     image: "/images/Home-WWD-Card3.webp",
   },
 ];
@@ -101,7 +104,7 @@ const Offerings = () => {
             </h2>
           </div>
           <Link href="/Contact-Us" className={styles.getInTouch} aria-label="Get in touch about our services">
-            Get In Touch <ArrowIcon />
+            Discuss Your Project <ArrowIcon />
           </Link>
         </div>
 
@@ -122,7 +125,7 @@ const Offerings = () => {
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{offering.title}</h3>
                   <Link href="/Contact-Us" className={styles.readMore} aria-label={`Learn more about ${offering.title}`}>
-                    Explore More <ArrowIcon />
+                    {offering.linkText} <ArrowIcon />
                   </Link>
                 </div>
               </div>

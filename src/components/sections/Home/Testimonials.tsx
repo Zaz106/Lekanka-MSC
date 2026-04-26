@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import styles from "./Testimonials.module.css";
 
 const testimonials = [
@@ -36,6 +39,25 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const topTrackRef = useRef<HTMLDivElement>(null);
+  const bottomTrackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Inject duplicates client-side so static HTML only contains each testimonial once.
+    // The marquee @keyframes uses translateX(-50%), which requires the track to be 2× wide.
+    [topTrackRef, bottomTrackRef].forEach((ref) => {
+      const track = ref.current;
+      if (!track) return;
+      const originals = Array.from(track.children);
+      originals.forEach((child) => {
+        const clone = child.cloneNode(true) as HTMLElement;
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
+      });
+      track.classList.add(styles.trackAnimating);
+    });
+  }, []);
+
   const topRow = testimonials.slice(0, 4);
   const bottomRow = testimonials.slice(4);
 
@@ -51,14 +73,14 @@ const Testimonials = () => {
     <section className={`container ${styles.section}`}>
       <div className={styles.header}>
         <span className={styles.subtitle}>Testimonials</span>
-        <h2 className={styles.title}>A Word From Those Who've Experienced Our Story</h2>
+        <h2 className={styles.title}>A Word From Those Who&apos;ve Experienced Our Story</h2>
       </div>
 
       <div className={styles.carouselContainer}>
         <div className={styles.row}>
-          <div className={styles.track}>
-            {[...topRow, ...topRow].map((testimonial, i) => (
-              <article key={`top-${i}`} className={styles.card} aria-hidden={i >= topRow.length || undefined}>
+          <div className={styles.track} ref={topTrackRef}>
+            {topRow.map((testimonial, i) => (
+              <article key={i} className={styles.card}>
                 <div className={styles.userInfo}>
                   <span className={styles.avatarPlaceholder}>{getInitials(testimonial.name)}</span>
                   <span className={styles.userName}>{testimonial.name}</span>
@@ -70,9 +92,9 @@ const Testimonials = () => {
         </div>
 
         <div className={styles.row}>
-          <div className={`${styles.track} ${styles.trackReverse}`}>
-            {[...bottomRow, ...bottomRow].map((testimonial, i) => (
-              <article key={`bottom-${i}`} className={styles.card} aria-hidden={i >= bottomRow.length || undefined}>
+          <div className={`${styles.track} ${styles.trackReverse}`} ref={bottomTrackRef}>
+            {bottomRow.map((testimonial, i) => (
+              <article key={i} className={styles.card}>
                 <div className={styles.userInfo}>
                   <span className={styles.avatarPlaceholder}>{getInitials(testimonial.name)}</span>
                   <span className={styles.userName}>{testimonial.name}</span>
